@@ -1,0 +1,19 @@
+mixin pageHeader(isFirstPage, claimNo)
+  .header
+    .header-left
+      //- Reference internal public directory path instead of hotlinking external web addresses
+      img.wcb-logo-img(src="/images/logo.png" alt="WCB Logo")
+      if isFirstPage
+        p 333 Broadway
+        p Winnipeg, MB R3C 4W3
+        p Phone: (204) 954-4321
+    .header-right
+      .report-title Worker Progress Report
+      if isFirstPage
+        p Workers Compensation
+        p Toll Free: 1-855-954-4321
+        p
+          strong Claim No. 
+          span= claimNo
+        p Board of Manitoba
+        p wcb.mb.ca

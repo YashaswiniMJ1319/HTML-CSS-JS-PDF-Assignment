@@ -1,0 +1,162 @@
+//- views/expenses.pug
+include mixins/expenseHeader.pug
+include mixins/expenseFooter.pug
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title WCB - Medical & Travel Expense Request
+    link(rel="stylesheet" href="/css/style.css")
+  body
+
+    //- Interactive Admin Toggling Control Matrix Panel (Omitted during print execution)
+    .data-panel.no-print
+      p <strong>Assignment Showcase Panel (Document 2):</strong> Toggle Server Side Data Matrix Routes Below:
+      if currentDataId === 1
+        button(onclick="window.location.href='/scenario-2'") Switch to Dataset 2 (Extended Rows)
+      else
+        button(onclick="window.location.href='/'") Switch to Dataset 1 (Standard Base)
+
+    //- ========================================================================
+    //- PAGE 1: DRUGS, SUPPLIES, AND PARKING REIMBURSEMENTS
+    //- ========================================================================
+    .page-container#page1
+      .page-content
+        +expenseHeader(true, currentData.claimNo)
+
+        .intro-text
+          span.fill-in-data= currentData.workerName
+          |  requested reimbursement for the following medical and/or travel expenses:
+
+        .section-container
+          .section-title Prescription Drugs
+          table.expense-table
+            thead
+              tr
+                th Drug Name
+                th Prescription Date
+                th Date Purchased
+                th Healthcare Provider Name
+                th Paid Amount
+            tbody
+              each row in currentData.prescriptionDrugs
+                tr
+                  td= row.name
+                  td= row.rxDate
+                  td= row.buyDate
+                  td= row.provider
+                  td <strong>#{row.amount}</strong>
+
+        .section-container
+          .section-title Over-the-Counter Drugs
+          table.expense-table
+            thead
+              tr
+                th Drug Name
+                th Date Purchased
+                th Paid Amount
+                th Seller's Name
+                th Reason for Purchasing
+            tbody
+              each row in currentData.otcDrugs
+                tr
+                  td= row.name
+                  td= row.buyDate
+                  td <strong>#{row.amount}</strong>
+                  td= row.seller
+                  td= row.reason
+
+        .section-container
+          .section-title Bandages, Braces or Other Medical Supplies
+          table.expense-table
+            thead
+              tr
+                th Item Purchased
+                th Date Purchased
+                th Was this Prescribed?
+                th Healthcare Provider Name
+                th Paid Amount
+                th Seller's Name
+            tbody
+              each row in currentData.supplies
+                tr
+                  td= row.item
+                  td= row.buyDate
+                  td= row.prescribed
+                  td= row.provider
+                  td <strong>#{row.amount}</strong>
+                  td= row.seller
+
+        .section-container
+          .section-title Parking for Medical Appointments
+          table.expense-table
+            thead
+              tr
+                th Address of Healthcare Provider/Medical Facility
+                th Date
+                th Paid Amount
+                th Meter Used?
+                th Meter Number
+            tbody
+              each row in currentData.parking
+                tr
+                  td= row.facility
+                  td= row.date
+                  td <strong>#{row.amount}</strong>
+                  td= row.meterUsed
+                  td= row.meterNo
+
+      +expenseFooter(1, currentData.appId, currentData.submittedDate)
+
+    //- ========================================================================
+    //- PAGE 2: TRANSIT LOGISTICS AND LEGAL CERTIFICATION MATRIX
+    //- ========================================================================
+    .page-container#page2
+      .page-content
+        +expenseHeader(false, null)
+
+        .section-container
+          .section-title Mileage to Medical Appointments
+          .policy-note The WCB will generally reimburse only those transportation costs which are in excess of costs that would be incurred by the worker while travelling to and from work.
+          table.expense-table
+            thead
+              tr
+                th Appointment Date
+                th Address of Healthcare Provider/Medical Facility
+                th Address of Workplace
+                th Number of km (Round Trip)
+            tbody
+              each row in currentData.mileage
+                tr
+                  td= row.date
+                  td= row.facility
+                  td= row.workplace
+                  td <strong>#{row.km}</strong>
+
+        .section-container
+          .section-title Bus or Taxi Fare for Medical Appointments
+          .policy-note *Note: Pre-approval is required from your WCB representative to claim taxi fare(s).
+          table.expense-table
+            thead
+              tr
+                th Appointment Date
+                th Address of Starting Point
+                th Address of Healthcare Provider/Medical Facility
+                th Bus or Taxi (indicate one)
+                th Total Fare Paid
+            tbody
+              each row in currentData.transit
+                tr
+                  td= row.date
+                  td= row.start
+                  td= row.facility
+                  td= row.type
+                  td <strong>#{row.fare}</strong>
+
+        .checkbox-item.legal-section
+          .box.checked
+          .legal-text I understand that the Privacy Notice applies to the personal information collected in this document.
+
+      +expenseFooter(2, currentData.appId, currentData.submittedDate)

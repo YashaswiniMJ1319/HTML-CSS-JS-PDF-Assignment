@@ -1,0 +1,35 @@
+//- Custom atomic components for standard input field replication
+mixin customCheckbox(labelText, isChecked)
+  .checkbox-item
+    div(class=isChecked ? 'box checked' : 'box')
+    span !{labelText}
+
+mixin textBlock(content)
+  //- Uses the explicit .text-block class defined in CSS and handles empty fields cleanly
+  .text-block
+    p= (content && content !== '—') ? content : 'No entries recorded.'  
+
+mixin pageFooter(pageNumber, appId, submittedDate)
+  .footer
+    .footer-col Worker App ID: #{appId}
+    .footer-col.align-center Submitted: #{submittedDate}
+    .footer-col.align-right Page #{pageNumber} of 3   
+
+mixin pageHeader(isFirstPage, claimNo)
+  .header
+    .header-left
+      img.wcb-logo-img(src="/images/logo.png" alt="WCB Logo")
+      if isFirstPage
+        p 333 Broadway
+        p Winnipeg, MB R3C 4W3
+        p Phone: (204) 954-4321
+    .header-right
+      .report-title Worker Progress Report
+      if isFirstPage
+        p Workers Compensation
+        p Toll Free: 1-855-954-4321
+        p
+          strong Claim No. 
+          span= claimNo
+        p Board of Manitoba
+        p wcb.mb.ca

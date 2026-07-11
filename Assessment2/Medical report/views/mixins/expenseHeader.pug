@@ -1,0 +1,15 @@
+mixin expenseHeader(showAddress, claimNo)
+  .header
+    .logo-column
+      img.wcb-logo-img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/WCB_of_Manitoba_logo.svg/1280px-WCB_of_Manitoba_logo.svg.png" alt="WCB Logo")
+    .address-column
+      if showAddress
+        p 333 Broadway
+        p Winnipeg, MB R3C 4W3
+        p Phone: (204) 954-4321
+        p Toll Free: 1-855-954-4321
+        p wcb.mb.ca
+    .title-column
+      .report-title Medical & Travel Expense<br>Request
+      if claimNo
+        .claim-box Claim No. <span>#{claimNo}</span>

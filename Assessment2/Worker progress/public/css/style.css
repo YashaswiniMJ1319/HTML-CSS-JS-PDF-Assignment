@@ -1,0 +1,463 @@
+/* ==========================================================================
+
+   Arial Typography & Layout Blueprint Matches Document Metrics
+
+   ========================================================================== */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: Arial, sans-serif; /* Matched typography profile precisely */
+
+}
+
+
+
+body {
+
+    background-color: #f8f9fa;
+
+    color: #222222;
+
+    padding: 20px;
+
+    -webkit-print-color-adjust: exact;
+
+    print-color-adjust: exact;
+
+}
+
+
+
+/* Page Frame Boundaries */
+
+.page-container {
+
+    width: 210mm;
+
+    height: 297mm; /* Absolute fixed A4 limits */
+
+    background: #ffffff;
+
+    margin: 0 auto 40px auto;
+
+    padding: 25mm 20mm; /* Symmetrical margins mirroring official form */
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    page-break-after: always;
+
+}
+
+
+
+.page-content {
+
+    flex-grow: 1;
+
+}
+
+
+
+/* Page Separation Safeguard Rule */
+
+.section-container {
+
+    margin-bottom: 18px;
+
+    page-break-inside: avoid; /* Prevents text elements clipping in mid-sentence */
+
+}
+
+
+
+/* ==========================================================================
+
+   Header Layout
+
+   ========================================================================== */
+
+.header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    border-bottom: 2px solid #0056b3;
+
+    padding-bottom: 12px;
+
+    margin-bottom: 16px;
+
+}
+
+
+
+.wcb-logo-img {
+
+    height: 48px; /* Fixed proportional height constraint matching image ratios */
+
+    margin-bottom: 8px;
+
+    display: block;
+
+}
+
+
+
+.header-left p, .header-right p {
+
+    font-size: 11px;
+
+    color: #444444;
+
+    line-height: 1.35;
+
+}
+
+
+
+.header-right {
+
+    text-align: right;
+
+}
+
+
+
+.report-title {
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    color: #111111;
+
+    margin-bottom: 4px;
+
+}
+
+
+
+.intro-text {
+
+    font-size: 13px;
+
+    margin-bottom: 14px;
+
+    line-height: 1.4;
+
+}
+
+
+
+.section-title {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    background-color: #ededed;
+
+    padding: 5px 8px;
+
+    margin: 15px 0 10px 0;
+
+    color: #111111;
+
+}
+
+
+
+.instruction-label {
+
+    font-size: 11.5px;
+
+    font-weight: bold;
+
+    color: #444444;
+
+    margin-bottom: 6px;
+
+    margin-top: 8px;
+
+}
+
+
+
+/* ==========================================================================
+
+   Crisp, Print-Styled Box Component Layout
+
+   ========================================================================== */
+
+.checkbox-group {
+
+    margin-bottom: 10px;
+
+    padding-left: 2px;
+
+}
+
+
+
+.checkbox-item {
+
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 5px; /* Tighter baseline spacing */
+
+    font-size: 12px;
+
+    line-height: 1.3;
+
+}
+
+
+
+/* Printed-style flat border box element overrides */
+
+.box {
+
+    width: 13px;
+
+    height: 13px;
+
+    border: 1.5px solid #444444;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-right: 8px;
+
+    background: #ffffff;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+}
+
+
+
+/* Sharp simulated structural indicator mark */
+
+.box.checked::before {
+
+    content: "";
+
+    width: 7px;
+
+    height: 7px;
+
+    background-color: #111111; /* Clean printed square marker profile filling */
+
+}
+
+
+
+.fill-in-data {
+
+    font-weight: bold;
+
+    color: #000000;
+
+    padding-left: 4px;
+
+}
+
+
+
+.text-block {
+
+    font-size: 12px;
+
+    background: #fafafa;
+
+    border: 1px solid #d3d3d3;
+
+    padding: 8px 10px;
+
+    margin-bottom: 10px;
+
+    min-height: 28px;
+
+    line-height: 1.35;
+
+}
+
+
+
+/* Pain Scale Grid */
+
+.scale-container {
+
+    display: flex;
+
+    gap: 14px;
+
+    margin: 8px 0 14px 2px;
+
+}
+
+
+
+/* Legal text formatting logic blocks */
+
+.legal-section {
+
+    align-items: flex-start !important;
+
+    margin-top: 25px;
+
+}
+
+
+
+.legal-text {
+
+    font-size: 11px;
+
+    line-height: 1.45;
+
+    text-align: justify;
+
+    color: #222222;
+
+}
+
+
+
+/* ==========================================================================
+
+   Clean 3-Column Footer Layout Grid
+
+   ========================================================================== */
+
+.footer {
+
+    border-top: 1px solid #cccccc;
+
+    padding-top: 8px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr; /* Rigid equal width columns arrangement */
+
+    font-size: 10.5px;
+
+    color: #555555;
+
+}
+
+
+
+.align-center { text-align: center; }
+
+.align-right { text-align: right; }
+
+
+
+/* Interactive Viewport Controls */
+
+.data-panel {
+
+    width: 210mm;
+
+    margin: 0 auto 15px auto;
+
+    background: #e9ecef;
+
+    padding: 12px 20px;
+
+    border-radius: 4px;
+
+    border: 1px solid #ced4da;
+
+    font-size: 13px;
+
+}
+
+.data-panel button {
+
+    margin-top: 8px;
+
+    padding: 6px 14px;
+
+    background: #0056b3;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+.data-panel button:hover { background: #004085; }
+
+
+
+/* ==========================================================================
+
+   Print Engine Device Optimization Targets
+
+   ========================================================================== */
+
+@page {
+
+    size: A4;
+
+    margin: 0; /* Let page-container handle internal print margins safely */
+
+}
+
+
+
+@media print {
+
+    body {
+
+        background: none;
+
+        padding: 0;
+
+    }
+
+    .page-container {
+
+        margin: 0;
+
+        box-shadow: none;
+
+    }
+
+    .no-print {
+
+        display: none !important;
+
+    }
+
+}
