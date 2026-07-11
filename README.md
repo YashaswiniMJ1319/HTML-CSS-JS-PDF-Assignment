@@ -1,155 +1,238 @@
-# HTML, CSS & JavaScript Assessment
+# PDF Form Recreation Assessment
 
 ## Overview
 
-This repository contains solutions for two document recreation assignments using **HTML**, **CSS**, and **JavaScript**.
+This repository contains solutions for two PDF form recreation assignments developed using **Node.js**, **Express.js**, **Pug**, **HTML**, and **CSS**.
 
-The objective was to recreate the provided PDF documents as web pages while maintaining a layout similar to the original documents and supporting dynamic data rendering.
+The objective of these assignments was to recreate the provided PDF documents as web pages while maintaining a layout closely matching the original forms. The applications also simulate backend data using multiple datasets, support A4 printing, and follow clean coding practices through reusable templates and modular project organization.
 
 ---
 
-## Exercises
+# Projects
 
-### 1. Worker Progress Report
+## 1. Worker Progress Report
 
-Recreated the Worker Progress Report PDF with:
+This project recreates the **Worker Progress Report** document using Pug templates and Express.
 
-- Multi-page A4 layout
-- Header and footer
-- Page numbering
-- WCB logo
+### Features
+
+- Multi-page A4 document layout
 - Dynamic worker information
-- Dynamic checkbox states
-- Dynamic pain scale
-- Print-friendly formatting
-- Toggle button to demonstrate multiple datasets
+- Dynamic Return-to-Work section
+- Dynamic Recovery section
+- Dynamic Pain Scale
+- Dynamic checkbox rendering
+- Reusable Pug mixins
+- Dataset switching using Express routes
+- Print-friendly layout
+- Automatic footer positioning
+- Clean modular architecture
 
 ---
 
-### 2. Medical & Travel Expense Request
+## 2. Medical & Travel Expense Request
 
-Recreated the Medical & Travel Expense Request PDF with:
+This project recreates the **Medical & Travel Expense Request** form.
 
-- Multi-page A4 layout
+### Features
+
+- Multi-page A4 document layout
+- Dynamic worker information
+- Dynamic claim details
 - Dynamic expense tables
-- Dynamic worker details
-- Dynamic claim information
-- Variable-length table rendering
+- Variable-length expense rendering
+- Dataset switching using Express routes
+- Reusable Pug templates
 - Print-friendly formatting
-- Toggle button to switch between different datasets
+- Automatic page breaks
+- Modular folder structure
 
 ---
 
-## Technologies Used
+# Technologies Used
 
+- Node.js
+- Express.js
+- Pug Template Engine
 - HTML5
 - CSS3
 - JavaScript (ES6)
 
 ---
 
-## Features
+# Key Features
 
-- Dynamic data rendering
-- DOM Manipulation
-- Event Handling
-- JavaScript Objects
-- Arrays
-- Loops
-- `getElementById()`
-- `querySelectorAll()`
-- `forEach()`
-- `window.onload`
-- Responsive A4 layout
-- CSS Grid
-- Flexbox
-- Print Media Queries
+- Backend data simulation
+- Multiple datasets
+- Dynamic template rendering
+- Express routing
+- Reusable Pug mixins
+- Modular project structure
+- Dynamic loops and conditional rendering
+- Print-specific CSS
+- A4 page formatting
+- Flexbox layout
+- Responsive document rendering
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```
 Project assessment/
 │
-├── Worker progress report/
-│   ├── home.html
-│   ├── style.css
-│   ├── script.js
-│   └── Worker progress report demo.mp4
+├── Assessment2/
 │
-├── Medical & Travel Expense Request/
-│   ├── index.html
-│   ├── style.css
-│   ├── script.js
-│   └── Medical and travel expense request.mp4
+│   ├── Worker progress/
+│   │
+│   │   ├── data/
+│   │   │   ├── dataset1.js
+│   │   │   └── dataset2.js
+│   │   │
+│   │   ├── public/
+│   │   │   ├── css/
+│   │   │   └── images/
+│   │   │
+│   │   ├── views/
+│   │   │   ├── index.pug
+│   │   │   └── mixins/
+│   │   │
+│   │   ├── app.js
+│   │   ├── package.json
+│   │   └── Worker progress demo.mp4
+│   │
+│   └── Medical report/
+│       │
+│       ├── data/
+│       │   ├── dataset1.js
+│       │   └── dataset2.js
+│       │
+│       ├── public/
+│       │   ├── css/
+│       │   └── images/
+│       │
+│       ├── views/
+│       │   ├── expenses.pug
+│       │   └── mixins/
+│       │
+│       ├── app.js
+│       ├── package.json
+│       └── Medical request demo.mp4
 │
 └── README.md
 ```
 
 ---
 
-## Dynamic Data Demonstration
+# Dynamic Data Demonstration
 
-Both exercises include multiple datasets.
+Both applications simulate backend responses using two different datasets.
 
-Using the **Toggle Scenario** button demonstrates:
+The applications demonstrate:
 
-- Different worker information
+- Dynamic worker information
 - Different claim numbers
 - Updated checkbox selections
-- Dynamic text fields
-- Variable table row counts
-- Automatic UI updates without modifying HTML
+- Dynamic text rendering
+- Variable expense rows
+- Automatic UI updates using the same Pug template
 
 ---
 
-## Print Support
+# Printing Support
 
-The documents are designed for printing using CSS print media rules.
+Both projects are optimized for printing.
 
-Features include:
+### Print Features
 
-- A4 page dimensions
+- A4 page size
+- Print media queries
+- Automatic page breaks
 - Hidden control panel during printing
-- Preserved page breaks
-- Header and footer alignment
-- Consistent document formatting
+- Consistent headers and footers
+- Proper page alignment
 
 ---
 
-## How to Run
+# How to Run
 
-1. Clone the repository.
+## Clone the repository
+
+```bash
+git clone https://github.com/YashaswiniMJ1319/HTML-CSS-JS-PDF-Assignment.git
+```
+
+## Install dependencies
+
+Navigate into either project folder.
+
+Example:
+
+```bash
+cd Assessment2/Worker\ progress
+```
+
+Install packages:
+
+```bash
+npm install
+```
+
+Run the application:
+
+```bash
+node app.js
+```
+
+or
+
+```bash
+npm start
+```
+
+Open your browser and visit:
 
 ```
-git clone <repository-url>
+http://localhost:3000
 ```
 
-2. Open either project folder.
-
-3. Open the HTML file in any modern web browser.
-
-Examples:
-
-- `Worker progress report/home.html`
-- `Medical & Travel Expense Request/index.html`
+Repeat the same steps for the **Medical report** project.
 
 ---
 
-## Video Demonstration
+# Video Demonstration
 
-Each exercise includes a narrated 2-minute demonstration covering:
+Each project includes a recorded demonstration covering:
 
-- Requirement understanding
-- Dynamic behavior
+- Project overview
+- Live application demo
+- Dataset switching
+- Print preview
 - Code walkthrough
-- Challenges and solutions
+- Folder structure
+- Challenges faced
+- Solutions implemented
 
 ---
 
-## Author
+# Coding Practices
+
+The projects follow good software engineering practices by using:
+
+- Modular folder structure
+- Reusable Pug mixins
+- Separate datasets
+- Clean Express routing
+- Reusable CSS
+- Backend data simulation
+- Maintainable code organization
+
+---
+
+# Author
 
 **Yashaswini M J**
+
+Bachelor of Engineering
 
 Computer Science & Engineering (Data Science)
